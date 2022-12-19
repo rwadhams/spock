@@ -1,0 +1,42 @@
+plugins {
+    // Apply the groovy plugin to add support for Groovy
+    id 'groovy'
+
+    id 'eclipse'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	// Use the latest Groovy version for building this library
+	implementation 'org.codehaus.groovy:groovy-all:3.0.9'
+	
+	implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+	implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+	
+	// Use the awesome Spock testing and specification framework
+	testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+	
+	// you can use testRuntimeClasspath if you don't want to use spock-report-specific features in your Specs
+	testImplementation( "com.athaydes:spock-reports:2.1.1-groovy-3.0" ) {
+		transitive = false // this avoids affecting your version of Groovy/Spock
+	}
+	// if you don't already have slf4j-api and an implementation of it in the classpath, add this!
+	testImplementation 'org.slf4j:slf4j-api:1.7.30'
+	testRuntimeClasspath 'org.slf4j:slf4j-simple:1.7.30'
+	
+	
+	
+	//Spock reporting
+	//testImplementation 'com.athaydes:spock-reports:2.3.1-groovy-3.0'
+	
+	//testCompile 'com.athaydes:spock-reports:1.6.1'
+	//testCompile 'org.slf4j:slf4j-api:1.7.30'
+	//testCompile 'org.slf4j:slf4j-simple:1.7.30'
+}
+
+test {
+	useJUnitPlatform()
+}
