@@ -11,6 +11,7 @@ class SetupCleanupSpec extends Specification {
 		println("###in setup spec!")
 		input2 = 2	//initialize
 	}
+	
 	def cleanupSpec() {
 		println("###in cleanup spec!")
 		input2 = 0	//reset, but unnecessary
@@ -21,6 +22,7 @@ class SetupCleanupSpec extends Specification {
 		println(">>>in test setup!")
 		input1 = 10	//initialize
 	}
+	
 	def cleanup() {
 		println(">>>in test cleanup!")
 		input1 = 0	//reset, but unnecessary

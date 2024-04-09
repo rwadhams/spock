@@ -4,6 +4,7 @@ import com.wadhams.spock.dto.CityInfo
 import com.wadhams.spock.service.Notifier
 import com.wadhams.spock.service.PaymentGateway
 
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -66,6 +67,12 @@ class IntroductionSpec extends Specification {
 			list.size() == 4
 	}
 
+	@Ignore
+	def "Ignored test"() {
+		println 'This test will not be executed'
+		println 'import used: spock.lang.Ignore'
+	}
+
 //
 // DATA DRIVEN TESTING
 //
@@ -86,9 +93,9 @@ class IntroductionSpec extends Specification {
 	def "sample parameterized test with list data type"() {
 		when:
 			def actualCount = input1.size()
-			then:
+		then:
 				actualCount == expectedCount
-			where:
+		where:
 			input1                                      ||expectedCount
 			["hello","world","happy","programming"]     ||4
 			["spock","data-driven","testing"]           ||3
@@ -98,7 +105,7 @@ class IntroductionSpec extends Specification {
 		expect:
 			a + b == expectedResult
 	
-			where:
+		where:
 			a 		| b 	|| expectedResult
 			10     	|15     ||25 
 			-4     	|6      ||2 
