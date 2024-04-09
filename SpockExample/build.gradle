@@ -6,6 +6,7 @@ plugins {
 }
 
 repositories {
+	mavenLocal()
     mavenCentral()
 }
 
@@ -36,6 +37,9 @@ dependencies {
 	//testCompile 'org.slf4j:slf4j-api:1.7.30'
 	//testCompile 'org.slf4j:slf4j-simple:1.7.30'
 }
+
+sourceCompatibility=18
+targetCompatibility=18
 
 test {
 	useJUnitPlatform()
